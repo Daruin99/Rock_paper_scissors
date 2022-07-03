@@ -8,41 +8,33 @@ function playRound(playerSelection, computerSelection){
     if (playerSelection.toUpperCase() === computerSelection.toUpperCase()) {
         return "It's a tie this round!";
     }
-    else if (playerSelection.toUpperCase() === "PAPER") {
-        switch(computerSelection){
-            case "Rock":
-                return "You Win this round!";
-                
-                case "Scissors":
-                    return "You Lose this round!"
+    else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "Rock") {
+   
+     return "You Win this round!";
             
         }
-    }
-    
-        else if (playerSelection.toUpperCase() === "ROCK") {
-            switch(computerSelection){
-                case "Paper":
-                    return "You Lose this round!";
-                    
-                    case "Scissors":
-                        return "You Win this round!"
-                
-            }
+        else if(playerSelection.toUpperCase() === "PAPER" && computerSelection === "Scissors"){
+        return "You Lose this round!";
         }
-    
-            else if (playerSelection.toUpperCase() === "SCISSORS") {
-                switch(computerSelection){
-                    case "Paper":
-                        return "You Win this round!";
-                        
-                        case "Rock":
-                            return "You Lose this round!"
-                    
-                }
-            }
-     
-    
+
+        else if (playerSelection.toUpperCase() === "ROCK" && computerSelection === "Paper"){
+            return "You Lose this round!";
+
+        }
+        else if(playerSelection.toUpperCase() === "ROCK" && computerSelection === "Scissors"){
+            return "You Win this round!";
+        }
+        else if(playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "Rock"){
+            return "You Lose this round!";
+    }
+
+    else if(playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "Paper"){
+        return "You Win this round!";
 }
+
+}
+    
+    
 
 function game(){
  let playerWins=0;
@@ -56,13 +48,15 @@ function game(){
          console.log(`You won this round! The score is ${playerWins} - ${computerWins}
          the computer chose ${computerSelection}`);
      }
-     else if (result === "You lose this round!"){
+     else if (result === "You Lose this round!"){
          computerWins++;
          console.log(`You lost this round! The score is ${playerWins} - ${computerWins}
          the computer chose ${computerSelection}`);
 
      }
-     else if(result==="It's a tie this round!"){         
+     else if(result === "It's a tie this round!"){         
+         playerWins+=0.5;
+         computerWins+=0.5;
          console.log(`It's a tie this round! The score is ${playerWins} - ${computerWins}
          the computer chose ${computerSelection}`);
 
